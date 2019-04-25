@@ -1,0 +1,52 @@
+<html>
+<canvas id="myCanvas" width="1200" height="100"
+style="border:1px solid red"
+></canvas>
+
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+//alert(ctx);
+
+ctx.moveTo(30,10);
+ctx.lineTo(0,50);
+ctx.lineTo(60,50);
+ctx.lineTo(30,10);
+ctx.moveTo(10,50);
+ctx.lineTo(10,85);
+ctx.lineTo(50,85);
+ctx.lineTo(50,50);
+ctx.font = "30px Arial";
+ctx.fillText("ጎጆ ቤት ", 10, 50); 
+x=70;
+for (i=x;i<1100;i+=70){
+ //draw(i);
+}
+draw(380,1900);
+function draw(i){
+ctx.moveTo(i+30,10);
+ctx.lineTo(i,50);
+ctx.lineTo(i+60,50);
+ctx.lineTo(i+30,10);
+ctx.moveTo(i+10,50);
+ctx.lineTo(i+10,85);
+ctx.lineTo(i+50,85);
+ctx.lineTo(i+50,50);
+}
+
+function draw(i,w){
+ctx.moveTo(i+w/2,10);
+ctx.lineTo(i,50);
+ctx.lineTo(i+w,50);
+ctx.lineTo(i+w/2,10);
+ctx.moveTo(i+w/6,50);
+ctx.lineTo(i+w/6,85);
+ctx.lineTo(i+(5/6)*w,85);
+ctx.lineTo(i+(5/6)*w,50);
+
+
+}
+ctx.stroke();
+</script>
+
+</html>
