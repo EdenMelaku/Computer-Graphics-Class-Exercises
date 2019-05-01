@@ -43,13 +43,32 @@ function drawRekebot( x,  y,  sx,  sy){
 
 function drawSini(x,  y,  sx,  sy){
   radd=sx/10;
+  num=Math.floor(sx/radd);
+  xin=x;
+  alert (num);
   lim=x+radd;
-  x=x+radd/3+x/5;
+  ctx.moveTo(lim,y+sx/10)
+  x=x+radd/3+radd;
   
-  while(lim<x+sx){
+  for(i=0;i<num-1-num/2;i++){
+      ctx.moveTo(lim,y+sx/10)
       drawCircle( radd, x,  y+sx/10 );
       lim=lim+2*radd+radd/3;
-      x=2*radd+radd/3;
+      x=x+2*radd+radd/3;
+      
+      
+
+  }
+  
+   
+  x=xin-radd/3+radd;
+  lim=x+radd;
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  for(i=0;i<num-1-num/2;i++){
+      ctx.moveTo(lim,y+sx/10)
+      drawCircle( radd, x,  y+sx/10+2*radd+radd/3);
+      lim=lim+2*radd+radd/3;
+      x=x+2*radd+radd/3;
       
       
 
