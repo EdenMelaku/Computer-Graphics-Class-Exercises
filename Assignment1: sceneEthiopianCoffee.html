@@ -1,0 +1,17 @@
+<html>
+<canvas id="myCanvas" width="1200" height="100"
+style="border:1px solid red"
+></canvas>
+
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+//alert(ctx);
+function drawCircle(int rad, int x, int y ){
+ ctx.arc(x, y, rad, 0, 2 * Math.PI)
+
+}
+ctx.stroke();
+</script>
+
+</html>
