@@ -1,5 +1,5 @@
 <html>
-<canvas id="myCanvas" width="1200" height="100"
+<canvas id="myCanvas" width="700" height="400"
 style="border:1px solid red"
 ></canvas>
 
@@ -7,8 +7,35 @@ style="border:1px solid red"
 var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 //alert(ctx);
-function drawCircle(int rad, int x, int y ){
- ctx.arc(x, y, rad, 0, 2 * Math.PI)
+function drawCircle( rad, x,  y ){
+ ctx.arc(x, y, rad, 0, 2 * Math.PI);
+
+}
+drawRekebot(100,15,300,150);
+
+function drawRekebot( x,  y,  sx,  sy){
+
+ ctx.moveTo(x,y);
+ ctx.lineTo(x+sx, y);
+ ctx.lineTo(x+sx+sx/5,y+sy);
+ ctx.lineTo(x-sx/5,y+sy);
+ ctx.lineTo(x,y);
+ 
+ ctx.moveTo(x-sx/5,y+sy);
+ 
+ ctx.lineTo(x-sx/5+sx/6,y+sy+sy/2);
+ ctx.lineTo(x-sx/5+sx/6+sx/3,y+sy+sy/2);
+ ctx.lineTo(x+sx/6,y+sy+sy/2-sy/4);
+ 
+ ctx.moveTo(x+sx+sx/5,y+sy);
+ ctx.lineTo(x+sx+sx/5+sx/6,y+sy+sy/2);
+ ctx.lineTo(x+sx+sx/5-sx/3,y+sy+sy/2);
+ 
+ ctx.lineTo(x+sx+sx/5-sx/3-sx/6,y+sy+sy/2-sy/4);
+ //ctx.lineTo(x+sx+sx/5+sx/6,y+sy+sy/2);
+ //ctx.lineTo(x-sx/5+sx/6,y+sy+sy/2-sy/4);
+ //ctx.arc(x, y, rad, 0, 2 * Math.PI);
+ ctx.lineTo(x+sx/6,y+sy+sy/2-sy/4);
 
 }
 ctx.stroke();
