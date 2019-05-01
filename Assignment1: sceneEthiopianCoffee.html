@@ -57,6 +57,7 @@ function drawSini(x,  y,  sx,  sy){
       x=x+2*radd+radd/3;
       
       
+      
 
   }
   
@@ -65,7 +66,7 @@ function drawSini(x,  y,  sx,  sy){
   lim=x+radd;
   ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
   for(i=0;i<num-1-num/2;i++){
-      ctx.moveTo(lim,y+sx/10)
+      ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
       drawCircle( radd, x,  y+sx/10+2*radd+radd/3);
       lim=lim+2*radd+radd/3;
       x=x+2*radd+radd/3;
