@@ -12,6 +12,7 @@ function drawCircle( rad, x,  y ){
 
 }
 drawRekebot(100,15,300,150);
+drawSini(100,15,300,150);
 
 function drawRekebot( x,  y,  sx,  sy){
 
@@ -36,6 +37,23 @@ function drawRekebot( x,  y,  sx,  sy){
  //ctx.lineTo(x-sx/5+sx/6,y+sy+sy/2-sy/4);
  //ctx.arc(x, y, rad, 0, 2 * Math.PI);
  ctx.lineTo(x+sx/6,y+sy+sy/2-sy/4);
+
+}
+
+
+function drawSini(x,  y,  sx,  sy){
+  radd=sx/10;
+  lim=x+radd;
+  x=x+radd/3+x/5;
+  
+  while(lim<x+sx){
+      drawCircle( radd, x,  y+sx/10 );
+      lim=lim+2*radd+radd/3;
+      x=2*radd+radd/3;
+      
+      
+
+  }
 
 }
 ctx.stroke();
