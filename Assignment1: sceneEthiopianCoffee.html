@@ -6,13 +6,57 @@ style="border:1px solid red"
 <script>
 var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
+ 
+ctx.beginPath();
+ctx.rect(500,300,200,75);
+ctx.closePath();
+//ctx.fillStyle = "#FB8B89";
+ //ctx.fill();
+ 
+ctx.moveTo(500,300);
+ctx.lineTo(470,340);
+ctx.lineTo(500,340);
+ctx.font = "40px Arial black";
+ctx.fillText("ኑ ቡና ጠጡ", 505, 350);
+
+x=350;
+y=350;
+rad=100;
+startAng=0;
+endAng=22*Math.PI;
+
+function drawGrass(){
+ctx.beginPath();
+ctx.arc(x,y,startAng,endAng);
+ctx.stroke();
+ctx.fillStyle="#009900";
+ctx.fill();
+
+
+}
+const img = new Image();
+      img.src = './jebena.jpeg';
+      img.onload = () => {
+        ctx.drawImage(img, 450, 60);
+      };
+
 //alert(ctx);
 function drawCircle( rad, x,  y ){
  ctx.arc(x, y, rad, 0, 2 * Math.PI);
+ ctx.fillStyle = "#FB8B89";
+ ctx.fill();
+ ctx.lineWidth = 5;
 
 }
+
+function  drawAdvert(){}
+
+
+
 drawRekebot(100,15,300,150);
 drawSini(100,15,300,150);
+
+drawMatchesha(100,15,300,150);
 
 function drawRekebot( x,  y,  sx,  sy){
 
@@ -37,6 +81,7 @@ function drawRekebot( x,  y,  sx,  sy){
  //ctx.lineTo(x-sx/5+sx/6,y+sy+sy/2-sy/4);
  //ctx.arc(x, y, rad, 0, 2 * Math.PI);
  ctx.lineTo(x+sx/6,y+sy+sy/2-sy/4);
+ ctx.stroke();
 
 }
 
@@ -45,38 +90,99 @@ function drawSini(x,  y,  sx,  sy){
   radd=sx/10;
   num=Math.floor(sx/radd);
   xin=x;
-  alert (num);
+  //alert (num);
   lim=x+radd;
   ctx.moveTo(lim,y+sx/10)
   x=x+radd/3+radd;
   
   for(i=0;i<num-1-num/2;i++){
+      ctx.beginPath();
       ctx.moveTo(lim,y+sx/10)
       drawCircle( radd, x,  y+sx/10 );
+      
+      
+      ctx.closePath();
+      ctx.beginPath();
+      ctx.moveTo(lim,y+sx/10)
+      drawCircle( radd-radd/4, x,  y+sx/10 );
+      ctx.closePath();
+      ctx.fillStyle="black";
+      ctx.fill();
+      
       lim=lim+2*radd+radd/3;
       x=x+2*radd+radd/3;
       
-      
-      
 
   }
+  
   
    
   x=xin-radd/3+radd;
   lim=x+radd;
   ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
-  for(i=0;i<num-1-num/2;i++){
+  for(i=0;i<num-2-num/2;i++){
+      ctx.beginPath();
       ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
       drawCircle( radd, x,  y+sx/10+2*radd+radd/3);
+      ctx.closePath();
+      
+      ctx.beginPath();
+      ctx.moveTo(lim,y+sx/10)
+      drawCircle( radd-radd/4,x,  y+sx/10+2*radd+radd/3);
+      ctx.closePath();
+      ctx.fillStyle="black";
+      ctx.fill();
       lim=lim+2*radd+radd/3;
       x=x+2*radd+radd/3;
       
-      
+            ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
 
   }
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  drawCircle( radd+radd/2,x,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim-radd,y+sx/10+2*radd+radd/3)
+  drawCircle( radd/2,x,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  drawCircle( radd+radd/2,x+5,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim-radd,y+sx/10+2*radd+radd/3)
+  drawCircle( radd/2,x,  y+sx/10+2*radd+radd/3);
+  
+  
+  
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  drawCircle( radd+radd/2,x+10,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim-radd,y+sx/10+2*radd+radd/3)
+  drawCircle( radd/2,x,  y+sx/10+2*radd+radd/3);
+  
+  
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  drawCircle( radd+radd/2,x+15,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim-radd,y+sx/10+2*radd+radd/3)
+  drawCircle( radd/2,x,  y+sx/10+2*radd+radd/3);
+  
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  drawCircle( radd+radd/2,x+25,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim-radd,y+sx/10+2*radd+radd/3)
+  drawCircle( radd/2,x,  y+sx/10+2*radd+radd/3);
+  ctx.stroke();
+  }
+  
+  
+  
+  function drawMatchesha(x,  y,  sx,  sy){
+      //alert("drawww");
+      ctx.moveTo(x+sx/6,y+sy+(sy/2)+20);
+      r=20;
+      
+      drawCircle( r, x+sx/6+10,y+sy+(sy/2)+20);
+      drawCircle( 2*r, x+sx/6+20,y+sy+(sy/2)+100);
+      
+  
+  ctx.stroke();
+  }
 
-}
-ctx.stroke();
+
+
 </script>
 
 </html>
