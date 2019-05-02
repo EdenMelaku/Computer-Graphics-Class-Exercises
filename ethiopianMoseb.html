@@ -1,0 +1,106 @@
+<html>
+
+<canvas width="1100" height="500" id="mosebCanvas" style="border:1px solid red">
+
+</canvas>
+<script>
+
+var c=document.getElementById("mosebCanvas");
+var ctx=c.getContext("2d");
+alert(ctx);
+ctx.beginPath();
+ctx.arc(250,150,150,0,Math.PI*2);
+ctx.stroke();
+drawArt();
+function drawArt(){
+
+ctx.lineWidth=3;
+for (i=10;i<150;i+=10){
+ctx.beginPath();
+ctx.arc(250,150,i,0,Math.PI*2);
+ctx.stroke();}
+}
+
+berchuma();
+function berchuma(){
+
+ctx.fillColor="#66291c";
+ctx.beginPath();
+ctx.arc(500,400,150,getRad(225),getRad(315));
+ctx.arc(500,190,150,getRad(45),getRad(135));
+ctx.stroke();
+
+
+ctx.beginPath();
+ctx.arc(500,210,160,getRad(45),getRad(135));
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(650,400,100,getRad(90),getRad(200));
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(620,400,100,getRad(90),getRad(200));
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(350,400,100,getRad(340),getRad(90));
+ctx.stroke();
+ctx.beginPath();
+
+ctx.arc(380,400,100,getRad(340),getRad(90));
+ctx.stroke();
+
+ctx.beginPath();
+ctx.rect(490,370,20,100);
+ctx.stroke();
+ctx.fill();
+}
+
+function getRad(x){
+
+return (Math.PI/180 )*x;
+
+}
+
+drawMoseb();
+function drawMoseb(){
+
+ for (i=50;i>0;i-=5){
+   //alert("func");
+   ctx.beginPath();
+   ctx.arc(900,70,i,getRad(25+i),getRad(155-i));
+   ctx.stroke();
+ }
+ for (i=10;i<200;i+=10){
+   ctx.beginPath();
+   ctx.arc(900,100,i,getRad(45),getRad(135));
+   ctx.stroke();
+ }
+
+
+ for (i=200;i<250;i+=10){
+   ctx.beginPath();
+   ctx.arc(900,100,i,getRad(45),getRad(135));
+   ctx.stroke();
+ }
+
+
+ for (i=250;i<500;i+=10){
+   ctx.beginPath();
+   ctx.arc(900,100,i,getRad(65),getRad(115));
+   ctx.stroke();
+ }
+
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+</html>
