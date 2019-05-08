@@ -1,0 +1,43 @@
+
+
+<script src="smoke.js"></script>
+
+<canvas id="canvas" style="border:1px solid red"></canvas>
+
+<script>
+var canvas = document.getElementById('canvas');
+
+	var ctx = canvas.getContext('2d');
+
+	canvas.width = 500;
+
+	canvas.height = 500;
+
+	// smokemachine(context, [r,g,b])
+
+	var demo = smokemachine(ctx, [54, 16.8, 18.2]);
+	
+	
+	alert("here");
+	demo.addsmoke(100,100,1000);
+	
+	demo.step(2000);
+
+	
+	onmousemove = function (e) {
+
+	  var x = e.clientX;
+
+	  var y = e.clientY;
+
+	  var n = .5;
+
+	  var t = Math.floor(Math.random() * 200) + 3800;
+
+	  party.addsmoke(x, y, n, t);
+
+	}
+	ctx.stroke();
+			alert("here");
+	
+	</script>
