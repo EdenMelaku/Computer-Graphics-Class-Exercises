@@ -1,0 +1,55 @@
+<html>
+
+<style>
+
+canvas{
+position :absolute
+
+}
+</style>
+
+<canvas width="1100" height="800" id="matCanvas" >
+
+</canvas>
+
+
+<script>
+
+function getRad(x){
+
+return (Math.PI/180 )*x;
+
+}
+var c=document.getElementById("matCanvas");
+var ctx=c.getContext("2d");
+ctx.fillStyle = "black";
+ctx.beginPath();
+ctx.arc(100,100,50,0,2*Math.PI);
+ctx.fill();
+ctx.stroke();
+ctx.strokeStyle = "#133816";
+ctx.lineWidth=50;
+ctx.beginPath();
+ctx.moveTo(50,100);
+ctx.lineTo(85,200);
+ctx.lineTo(45,300);
+
+ctx.moveTo(150,100);
+ctx.lineTo(115,200);
+ctx.lineTo(155,300);
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(100,5,300,getRad(75),getRad(105));
+ctx.fill();
+ctx.stroke();
+
+
+
+
+
+
+
+
+</script>
+</html>
