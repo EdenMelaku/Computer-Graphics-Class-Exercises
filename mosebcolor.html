@@ -1,14 +1,39 @@
 <html>
 
-<canvas width="1100" height="800" id="mosebCanvas" style="border:1px solid red">
+<style>
+
+canvas{
+position :absolute
+
+}
+</style>
+
+<canvas width="1100" height="800" id="mosebCanvas" >
 
 </canvas>
+
+<canvas width="1100" height="800" id="grassCanvas">
+
+</canvas>
+<canvas id="myCanvas" width="700" height="600"
+
+></canvas>
+
+
+<canvas width="1100" height="800" id="matCanvas" >
+
+</canvas>
+
+
+
+
+
+
+
 <script>
 
 var c=document.getElementById("mosebCanvas");
 var ctx=c.getContext("2d");
-
-
 
 
 
@@ -32,7 +57,7 @@ function drawMoseb(){
  }
  
  
- for (i=10;i<200;i+=10){
+ for (i=10;i<100;i+=10){
    ctx.beginPath();
       ctx.fillStyle="green"
    ctx.arc(900,100,i,getRad(45),getRad(135));
@@ -41,7 +66,7 @@ function drawMoseb(){
  }
 
 
- for (i=200;i<250;i+=10){
+ for (i=100;i<150;i+=10){
    ctx.beginPath();
       ctx.fillStyle="green"
    ctx.arc(900,100,i,getRad(45),getRad(135));
@@ -51,8 +76,8 @@ function drawMoseb(){
 
  i=45;
  j=135;
- x=250;
- while(i<=65 && j>=115 && x<350){
+ x=150;
+ while(i<=65 && j>=115 && x<250){
    ctx.beginPath();
          ctx.fillStyle="green"
    ctx.arc(900,100,x,getRad(i),getRad(j));
@@ -63,8 +88,12 @@ function drawMoseb(){
    j=j-2;
    x=x+5;
  }
-  ctx.fillStyle="#d5a723";
- for (i=300;i<600;i+=10){
+  ctx.fillStyle="yellow";
+ for (i=200;i<500;i+=10){
+   if(i>350)
+   {
+     ctx.fillStyle="red";
+   }
    ctx.beginPath();
    ctx.arc(900,100,i,getRad(65),getRad(115));
          ctx.fill();
@@ -75,21 +104,7 @@ function drawMoseb(){
  
  
  
- ctx.fillStyle="red";
- 
- ctx.beginPath();
- 
- ctx.rotate(20*Math.PI/180);
- ctx.fillRect(840,250,450,120 );
- ctx.stroke();
-  //ctx.rotate(380*Math.PI/180);
-   ctx.rotate(340*Math.PI/180);
-     
-  ctx.beginPath();
- 
- 
- ctx.fillRect(900,600,450,120 );
- ctx.stroke();
+
  
  
   ctx.fillStyle="#d5a723";
@@ -102,7 +117,7 @@ function drawMoseb(){
  }
  
  
- for (i=10;i<200;i+=10){
+ for (i=10;i<100;i+=10){
    ctx.beginPath();
    ctx.arc(900,100,i,getRad(45),getRad(135));
    
@@ -110,7 +125,7 @@ function drawMoseb(){
  }
 
 
- for (i=200;i<250;i+=10){
+ for (i=100;i<150;i+=10){
    ctx.beginPath();
    ctx.arc(900,100,i,getRad(45),getRad(135));
    ctx.stroke();
@@ -118,8 +133,8 @@ function drawMoseb(){
 
  i=45;
  j=135;
- x=250;
- while(i<=65 && j>=115 && x<350){
+ x=150;
+ while(i<=65 && j>=115 && x<250){
    ctx.beginPath();
    ctx.arc(900,100,x,getRad(i),getRad(j));
    ctx.stroke();
@@ -129,7 +144,7 @@ function drawMoseb(){
    x=x+5;
  }
  
- for (i=300;i<600;i+=10){
+ for (i=200;i<500;i+=10){
    ctx.beginPath();
    ctx.arc(900,100,i,getRad(65),getRad(115));
    ctx.stroke();
@@ -159,6 +174,311 @@ function drawMoseb(){
 
 
 </script>
+
+
+
+
+
+<script>
+
+
+
+
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+one();
+ function one(){
+ ctx.lineWidth=3;
+//ctx.fillStyle = "#27992e";
+ctx.beginPath();
+ctx.rect(100,500,200,75);
+
+
+ 
+ 
+ctx.moveTo(100,500);
+ctx.lineTo(70,540);
+ctx.lineTo(100,540);
+ctx.font = "40px Arial black";
+ctx.fillText("ኑ ቡና ጠጡ", 105, 550);
+ctx.closePath();
+ctx.stroke();
+x=350;
+y=350;
+rad=100;
+startAng=0;
+endAng=22*Math.PI;
+}
+function drawGrass(){
+ctx.beginPath();
+ctx.arc(x,y,startAng,endAng);
+ctx.stroke();
+ctx.fillStyle="#009900";
+ctx.fill();
+
+
+}
+const img = new Image();
+      img.src = './jebena.jpeg';
+      img.onload = () => {
+        ctx.drawImage(img, 450, 60);
+      };
+
+//alert(ctx);
+function drawCircle( rad, x,  y ){
+ ctx.arc(x, y, rad, 0, 2 * Math.PI);
+ ctx.fillStyle = "#f5eb69";
+ ctx.fill();
+ ctx.lineWidth = 5;
+
+}
+
+function  drawAdvert(){}
+
+
+
+drawRekebot(100,15,300,150);
+drawSini(100,15,300,150);
+
+//drawMatchesha(100,15,300,150);
+
+function drawRekebot( x,  y,  sx,  sy){
+ctx.fillStyle = "#133816";
+ctx.beginPath();
+
+ ctx.moveTo(x,y);
+ ctx.lineTo(x+sx, y);
+ ctx.lineTo(x+sx+sx/5,y+sy);
+ ctx.lineTo(x-sx/5,y+sy);
+ ctx.lineTo(x,y);
+ 
+ ctx.moveTo(x-sx/5,y+sy);
+ 
+ ctx.lineTo(x-sx/5+sx/6,y+sy+sy/2);
+ ctx.lineTo(x-sx/5+sx/6+sx/3,y+sy+sy/2);
+ ctx.lineTo(x+sx/6,y+sy+sy/2-sy/4);
+ 
+ ctx.moveTo(x+sx+sx/5,y+sy);
+ ctx.lineTo(x+sx+sx/5+sx/6,y+sy+sy/2);
+ ctx.lineTo(x+sx+sx/5-sx/3,y+sy+sy/2);
+ 
+ ctx.lineTo(x+sx+sx/5-sx/3-sx/6,y+sy+sy/2-sy/4);
+ //ctx.lineTo(x+sx+sx/5+sx/6,y+sy+sy/2);
+ //ctx.lineTo(x-sx/5+sx/6,y+sy+sy/2-sy/4);
+ //ctx.arc(x, y, rad, 0, 2 * Math.PI);
+ ctx.lineTo(x+sx/6,y+sy+sy/2-sy/4);
+ ctx.fill();
+ ctx.stroke();
+
+}
+
+
+function drawSini(x,  y,  sx,  sy){
+  radd=sx/10;
+  num=Math.floor(sx/radd);
+  xin=x;
+  //alert (num);
+  lim=x+radd;
+  ctx.moveTo(lim,y+sx/10)
+  x=x+radd/3+radd;
+  
+  for(i=0;i<num-1-num/2;i++){
+      ctx.beginPath();
+      ctx.moveTo(lim,y+sx/10)
+      drawCircle( radd, x,  y+sx/10 );
+      
+      
+      ctx.closePath();
+      ctx.beginPath();
+      ctx.moveTo(lim,y+sx/10);
+      drawCircle( radd-radd/4, x,  y+sx/10 );
+      ctx.closePath();
+      ctx.fillStyle="black";
+      ctx.fill();
+      
+      lim=lim+2*radd+radd/3;
+      x=x+2*radd+radd/3;
+      
+
+  }
+  
+  
+   
+  x=xin-radd/3+radd;
+  lim=x+radd;
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  for(i=0;i<num-2-num/2;i++){
+      ctx.beginPath();
+      ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+      drawCircle( radd, x,  y+sx/10+2*radd+radd/3);
+      ctx.closePath();
+      
+      ctx.beginPath();
+      ctx.moveTo(lim,y+sx/10)
+      drawCircle( radd-radd/4,x,  y+sx/10+2*radd+radd/3);
+      ctx.closePath();
+      ctx.fillStyle="black";
+      ctx.fill();
+      lim=lim+2*radd+radd/3;
+      x=x+2*radd+radd/3;
+      
+            ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+
+  }
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  drawCircle( radd+radd/2,x,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim-radd,y+sx/10+2*radd+radd/3)
+  drawCircle( radd/2,x,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  drawCircle( radd+radd/2,x+5,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim-radd,y+sx/10+2*radd+radd/3)
+  drawCircle( radd/2,x,  y+sx/10+2*radd+radd/3);
+  
+  
+  
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  drawCircle( radd+radd/2,x+10,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim-radd,y+sx/10+2*radd+radd/3)
+  drawCircle( radd/2,x,  y+sx/10+2*radd+radd/3);
+  
+  
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  drawCircle( radd+radd/2,x+15,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim-radd,y+sx/10+2*radd+radd/3)
+  drawCircle( radd/2,x,  y+sx/10+2*radd+radd/3);
+  
+  ctx.moveTo(lim,y+sx/10+2*radd+radd/3)
+  drawCircle( radd+radd/2,x+25,  y+sx/10+2*radd+radd/3);
+  ctx.moveTo(lim-radd,y+sx/10+2*radd+radd/3)
+  drawCircle( radd/2,x,  y+sx/10+2*radd+radd/3);
+  ctx.stroke();
+  }
+  
+  
+  
+  function drawMatchesha(x,  y,  sx,  sy){
+      //alert("drawww");
+      ctx.moveTo(x+sx/6,y+sy+(sy/2)+20);
+      r=20;
+      
+      drawCircle( r, x+sx/6+10,y+sy+(sy/2)+20);
+      drawCircle( 2*r, x+sx/6+20,y+sy+(sy/2)+100);
+      
+  
+  ctx.stroke();
+  }
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+var c2=document.getElementById("grassCanvas");
+var ctx2=c2.getContext("2d");
+
+drawGrass(300,100);
+function drawGrass(x,y){
+ctx2.beginPath();
+m=0;
+p=y+100;
+ctx2.lineWidth=3;
+for ( i=0;i<600;i+=10+Math.random()*5){
+   
+    
+    
+    ctx2.moveTo(x+i/10,y);
+    ctx2.lineTo(x+Math.random()*10-i,400+Math.random()*20);
+    ctx2.strokeStyle="#009900";
+    ctx2.stroke();
+    
+    
+
+   
+}
+
+
+for(i=0;i<300;i+=10+Math.random()*5){
+
+  
+
+    
+    ctx2.moveTo(x+30+i/10,y);
+    ctx2.lineTo(x+i+Math.random(),400+Math.random()*20);
+    ctx2.strokeStyle="#009900";
+    ctx2.stroke();
+
+}
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+
+function getRad(x){
+
+return (Math.PI/180 )*x;
+
+}
+var c=document.getElementById("matCanvas");
+var ctx=c.getContext("2d");
+ctx.fillStyle = "black";
+ctx.beginPath();
+ctx.arc(200,250,35,0,2*Math.PI);
+ctx.fill();
+ctx.stroke();
+ctx.strokeStyle = "#133816";
+ctx.lineWidth=35;
+ctx.beginPath();
+ctx.moveTo(160,250);
+ctx.lineTo(195,300);
+ctx.lineTo(165,350);
+
+ctx.moveTo(240,250);
+ctx.lineTo(205,300);
+ctx.lineTo(245,350);
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.fillStyle = "black";
+ctx.arc(200,-35,400,getRad(80),getRad(98));
+ctx.fill();
+ctx.stroke();
+
+
+
+
+
+
+
+
+</script>
+
+
 
 
 
